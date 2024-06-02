@@ -13,3 +13,39 @@ mongoose.connect(MONGO_URI)
     console.log('failed');
 })
 
+
+const userSchema=new mongoose.Schema({
+    email:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    otp:{
+        type:String,
+    },
+    isVerified:{
+        type:Boolean,
+        default:false
+    }
+})
+
+const usercollection = mongoose.model("usercollection",userSchema)
+
+
+const adminSchema=new mongoose.Schema({
+    email:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    }
+})
+
+const admincollection = mongoose.model("admincollection",adminSchema)
+
+module.exports={usercollection,admincollection}

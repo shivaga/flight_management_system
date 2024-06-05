@@ -4,9 +4,10 @@ import '../src/home.css';
 
 function Home() {
   return (
-    <div className="home-container">
-      <h1>Welcome</h1>
-      <div className="button-container">
+    <div className='body_container'>
+    <div className="root_container">
+      <h1>Welcome to Nothing airlines</h1>
+      <div className="button_container">
         <Link to="/admin_login">
           <button className="btn">Admin Login</button>
         </Link>
@@ -14,6 +15,7 @@ function Home() {
           <button className="btn">User Login</button>
         </Link>
       </div>
+    </div>
     </div>
   );
 }

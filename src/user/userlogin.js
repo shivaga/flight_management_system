@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState ,useEffect} from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
 import { TextField, Button, Box, Typography, Container } from '@mui/material';
@@ -10,6 +10,12 @@ function Userlogin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    useEffect(() => {
+        const token = localStorage.getItem('authToken');
+        if (token) {
+          history('/user_home'); // Route to login if token not exists
+        }
+    }, [history]);
 
     async function handlelogin(e) {
         e.preventDefault();
@@ -48,12 +54,13 @@ function Userlogin() {
 
 
     return (
+        <div className="body_container">
         <div className="user_login">
 
             <Container component="main" maxWidth="xs">
                 <Box sx={{marginTop: 8,display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
                     <Typography component="h1" variant="h5" color="primary">Login</Typography>
-                    <Box component="form" onSubmit={handlelogin} sx={{ mt: 1 }}>
+                    <Box component="form" onSubmit={handlelogin} sx={{ mt: 1 }}> 
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -102,6 +109,7 @@ function Userlogin() {
             </Button>
           </Link>
 
+        </div>
         </div>
     )
 }

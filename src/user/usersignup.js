@@ -90,6 +90,7 @@ function Usersignup() {
 
 
     return (
+        <div className="body_container">
         <div className="user_signup">
             <Container component="main" maxWidth="xs">
                 <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -156,6 +157,7 @@ function Usersignup() {
                 </Button>
             </Link>
 
+        </div>
         </div>
     )
 }

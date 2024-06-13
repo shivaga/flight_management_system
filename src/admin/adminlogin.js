@@ -6,10 +6,26 @@ import { useNavigate} from "react-router-dom"
 function Adminlogin() {
     const history = useNavigate();
     useEffect(() => {
-        const token = localStorage.getItem('authToken_admin');
-        if (token) {
-          history('/admin_home');
+        async function checkadminlogin(){
+            const email = localStorage.getItem('admin_email');
+            const password=localStorage.getItem('admin_password');
+            if (email!==null && password!==null) {
+                try {
+                    await axios.post("http://localhost:8000/admin_login", {
+                        email, password
+                    })
+                    .then(res => {
+                        if (res.data === "exist") {
+                            history("/admin_home");
+                        }
+                    })
+                }
+                catch (e) {
+                    console.log(e);
+                }
+            }
         }
+        checkadminlogin();
     }, [history]);
 
     const [email, setEmail] = useState('');
@@ -28,7 +44,8 @@ function Adminlogin() {
                 })
                     .then(res => {
                         if (res.data === "exist") {
-                            localStorage.setItem('authToken_admin',"Verified")
+                            localStorage.setItem('admin_email',email);
+                            localStorage.setItem('admin_password',password);
                             history("/admin_home")
                         }
                         else if (res.data === "notexist") {

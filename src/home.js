@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../src/home.css';
 
+
 function Home() {
   return (
     <div className='body_container'>

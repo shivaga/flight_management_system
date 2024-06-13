@@ -4,6 +4,7 @@ import Home from './home';
 import Userlogin from './user/userlogin';
 import Usersignup from './user/usersignup'
 import Userhome from './user/userhome';
+import Usersearch from './user/usersearch';
 import Adminlogin from './admin/adminlogin';
 import Adminhome from './admin/adminhome';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
@@ -20,6 +21,7 @@ function App() {
           <Route path="/user_login" element={<Userlogin/>}></Route>
           <Route path="/user_signup" element={<Usersignup/>}></Route>
           <Route path="/user_home" element={<Userhome/>}></Route>
+          <Route path="/search" element={<Usersearch/>}></Route>
         </Routes>
     </div>
     </Router>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 // imported icons ===========>
-import { SiConsul } from "react-icons/si";
+// import { SiConsul } from "react-icons/si";
 // import { BsPhoneVibrate } from "react-icons/bs";
 // import { AiOutlineGlobal } from "react-icons/ai";
 import { CgMenuGridO } from "react-icons/cg";
@@ -15,7 +15,13 @@ const Navbar = () => {
     const history=useNavigate();
      const [active, setActive] = useState('navBarMenu')
      const showNavBar = () => {
-        setActive('navBarMenu showNavBar')
+        // setActive('navBarMenu showNavBar');
+        if(active==='navBarMenu'){
+        setActive('navBarMenu showNavBar');
+        }
+        else{
+            setActive('navBarMenu');
+        }
      }
 
      const removeNavBar = () => {
@@ -32,7 +38,8 @@ const Navbar = () => {
         }
      }    
      function handlelogout(){
-        localStorage.removeItem("authToken");
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
         history("/");
      }
 
@@ -41,7 +48,7 @@ const Navbar = () => {
 
     return(
         <div className='navBar flex'>
-            <div className="navBarOne flex">
+            {/* <div className="navBarOne flex">
                 <div>
                 <SiConsul className='icon'/>
                 </div>
@@ -51,7 +58,7 @@ const Navbar = () => {
                     <span onClick={()=>handlelogout()}>Sign Out</span>
                 </div>
 
-            </div>
+            </div> */}
 
             <div className={noBg}>
                 <div className="logoDiv">
@@ -62,18 +69,18 @@ const Navbar = () => {
                     <ul className="menu flex">
                         <li onClick={removeNavBar} className="listItem">Home</li>
                         <li onClick={removeNavBar}  className="listItem">About</li>
-                        <li onClick={removeNavBar} className="listItem">Offers</li>
-                        <li onClick={removeNavBar} className="listItem">Seats</li>
-                        <li onClick={removeNavBar} className="listItem">Destinations</li>
+                        <li onClick={removeNavBar} className="listItem">Flights</li>
+                        <li onClick={removeNavBar} className="listItem">My Bookings</li>
+                        <li onClick={removeNavBar} className="listItem">Contact</li>
                     </ul>
 
                     <button onClick={removeNavBar} className="btn flex btnOne">
-                        Contact
+                        Signout
                     </button>
                 </div>
 
-                <button className="btn flex btnTwo">
-                        Contact
+                <button className="btn flex btnTwo" onClick={()=>handlelogout()}>
+                        Signout
                 </button> 
 
                 <div onClick={showNavBar} className='toggleIcon'>

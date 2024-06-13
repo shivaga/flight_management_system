@@ -11,10 +11,30 @@ function Userlogin() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     useEffect(() => {
-        const token = localStorage.getItem('authToken');
-        if (token) {
-          history('/user_home'); // Route to login if token not exists
+        async function checklogin(){
+            const email = localStorage.getItem('email');
+            const password=localStorage.getItem('password');
+            if (email!==null && password!==null) {
+                try {
+                    await axios.post("http://localhost:8000/", {
+                        email, password
+                    })
+                        .then(res => {
+                            if (res.data === "exist") {
+                                history("/user_home")
+                            }
+                        })
+                        .catch(e => {
+                            alert("wrong details")
+                            console.log(e);
+                        })
+                }
+                catch (e) {
+                    console.log(e);
+                }
+            }
         }
+        checklogin()
     }, [history]);
 
     async function handlelogin(e) {
@@ -29,7 +49,8 @@ function Userlogin() {
                 })
                     .then(res => {
                         if (res.data === "exist") {
-                            localStorage.setItem('authToken', 'Verified');
+                            localStorage.setItem('email', email);
+                            localStorage.setItem('password',password);
                             history("/user_home")
                         }
                         else if (res.data === "notexist") {

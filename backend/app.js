@@ -1,7 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 const nodemailer=require("nodemailer");
-const {usercollection,admincollection} = require("./mongo")
+const {usercollection,admincollection,flightcollection} = require("./mongo")
 // Creating instance of an express application
 const app = express()
 app.use(express.json())
@@ -14,7 +14,7 @@ app.use(cors())
 app.get("/",cors(),(req,res)=>{
 
 })
-
+// app.get("/flights",)
 
 app.post("/",async(req,res)=>{
     const{email,password}=req.body
@@ -172,6 +172,44 @@ async function sendotp(OTP,email) {
     // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
+
+
+app.get('/flights', async (req, res) => {
+    const flights = await flightcollection.find();
+    res.json(flights);
+});
+  
+app.post('/flights', async (req, res) => {
+    const flight = new flightcollection(req.body);
+    await flight.save();
+    res.status(201).json(flight);
+});
+  
+app.put('/flights/:id', async (req, res) => {
+    const { id } = req.params;
+    const updatedFlight = await flightcollection.findByIdAndUpdate(id, req.body, { new: true });
+    res.json(updatedFlight);
+});
+  
+app.delete('/flights/:id', async (req, res) => {
+    const { id } = req.params;
+    await flightcollection.findByIdAndDelete(id);
+    res.status(204).send();
+});
+
+app.get('/search', async (req, res) => {
+    // console.log("Here");
+    try {
+        const query = req.query;
+        // console.log(query);
+        const results = await flightcollection.find({startingPoint:query.sl,endingPoint:query.el,date:query.dt});
+        // console.log(results);
+        res.json(results);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
 
 const PORT = 8000;
 app.listen(PORT, () => {

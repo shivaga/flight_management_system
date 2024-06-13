@@ -10,15 +10,39 @@ import Travelers from '../Frontend/Travelers/Travelers.jsx'
 import Subscribe from '../Frontend/Subscribers/Subscribe.jsx'
 import Footer from '../Frontend/Footer/Footer.jsx'
 import '../App.css';
+import axios from "axios";
 
 
 function Userhome() {
     const navigate = useNavigate();
     useEffect(() => {
-        const token = localStorage.getItem('authToken');
-        if (token===null) {
+        async function checklogin(){
+        const email = localStorage.getItem('email');
+        const password=localStorage.getItem('password');
+        if (email===null && password===null) {
           navigate('/user_login');
         }
+        else{
+            try {
+                await axios.post("http://localhost:8000/", {
+                    email, password
+                })
+                    .then(res => {
+                        if (res.data === "notexist") {
+                            navigate("/user_login")
+                        }
+                    })
+                    .catch(e => {
+                        alert("wrong details")
+                        console.log(e);
+                    })
+            }
+            catch (e) {
+                console.log(e);
+            }
+        }
+    }
+    checklogin()
     }, [navigate]);
     return (
         <div className="App">

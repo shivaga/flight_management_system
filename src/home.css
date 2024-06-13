@@ -11,10 +11,11 @@
   /* width: 100vh; */
   overflow: hidden;
 }
+
 .body_container {
   font-family: 'Roboto', sans-serif;
-  background: url('https://source.unsplash.com/1600x900/?airplane,flight') no-repeat center center fixed;
-  background-size:cover;
+  background: url('./Assets/takeOff.png') no-repeat center center fixed;
+  background-size:contain;
   margin: 0;
   padding: 0;
   display: flex;

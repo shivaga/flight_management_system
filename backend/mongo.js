@@ -48,4 +48,18 @@ const adminSchema=new mongoose.Schema({
 
 const admincollection = mongoose.model("admincollection",adminSchema)
 
-module.exports={usercollection,admincollection}
+const flightSchema = new mongoose.Schema({
+    flightId: { type: String, required: true },
+    startingPoint: { type: String, required: true },
+    endingPoint: { type: String, required: true },
+    seats: { type: Number, required: true },
+    price: { type: Number, required: true },
+    time: { type: String, required: true },
+    duration:{type:String, required:true},
+    date:{type:String,required:true}
+    
+});
+  
+const flightcollection = mongoose.model("flightcollection",flightSchema)
+
+module.exports={usercollection,admincollection,flightcollection};

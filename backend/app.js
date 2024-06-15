@@ -86,7 +86,7 @@ app.post("/signup",async(req,res)=>{
 
 app.post("/signup_after_otp",async(req,res)=>{
     const{email,password,otp}=req.body
-    console.log(req.body);
+    // console.log(req.body);
 
     const data={
         email:email,

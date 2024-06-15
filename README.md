@@ -1,70 +1,127 @@
-# Getting Started with Create React App
+# Flight Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The Flight Management System is a full-stack application designed to manage flight data and user bookings. The backend provides capabilities to add, update, and delete flight information, while the frontend allows users to search for flights, book flights, and handle user authentication (login and signup).
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+- **Frontend:** React
+- **Backend:** Node.js
+- **Database:** MongoDB
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- Add new flights
+- Update existing flight details
+- Delete flights
 
-### `npm test`
+### User Side
+- Search for flights
+- Book flights
+- User authentication (Login and Signup)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Make sure you have the following installed on your system:
+- Node.js
+- npm (Node Package Manager)
+- MongoDB
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Fork the Project**
 
-### `npm run eject`
+   Fork this repository to your own GitHub account.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Clone the Repository**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   git clone https://github.com/shivaga/flight-management-system.git
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Navigate to the Project Directory**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   cd flight-management-system
+   ```
 
-## Learn More
+### Starting the Backend Server
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Navigate to the Backend Directory**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   cd backend
+   ```
 
-### Code Splitting
+2. **Install Backend Dependencies**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   npm install
+   ```
 
-### Analyzing the Bundle Size
+3. **Start the Backend Server**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   node app.js
+   ```
 
-### Making a Progressive Web App
+### Starting the Frontend Server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. **Install Frontend Dependencies**
 
-### Advanced Configuration
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. **Start the Frontend Server**
 
-### Deployment
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Project Structure
 
-### `npm run build` fails to minify
+```
+flight-management-system/
+│
+├── backend/
+│   ├── app.js
+│   ├── mongo.js
+│   ├── ...
+│   └── ...
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   ├── package.json
+│   └── ...
+│
+└── README.md
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Backend Directory
+
+- **app.js:** Entry point for the backend server.
+- **mongo.js/:** Contains Mongoose models for MongoDB.
+
+### Frontend Directory
+
+- **public/:** Public assets and the main HTML file.
+- **src/:** React components and main application logic.
+- **package.json:** Frontend dependencies and scripts.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+## Contact
+
+For any questions or suggestions, please open an issue or contact the project maintainer.
+
+---
+
+Thank you for using the Flight Management System! Happy coding! 🚀

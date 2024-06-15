@@ -62,4 +62,14 @@ const flightSchema = new mongoose.Schema({
   
 const flightcollection = mongoose.model("flightcollection",flightSchema)
 
-module.exports={usercollection,admincollection,flightcollection};
+const bookingSchema=new mongoose.Schema({
+    useremail:{
+        type:String,
+        required:true
+    },
+    bookings:[flightSchema]
+});
+
+const bookingcollection=mongoose.model("bookingcollection",bookingSchema);
+
+module.exports={usercollection,admincollection,flightcollection,bookingcollection};

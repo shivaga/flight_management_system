@@ -23,10 +23,16 @@ const Navbar = () => {
             setActive('navBarMenu');
         }
      }
+     function showbookings(){
+        setActive('navBarMenu')
+        history("/my_bookings");
+     }
 
      const removeNavBar = () => {
         setActive('navBarMenu')
+        
      }
+    
      
      // lets add a background color to seacond navbar ====>
     const [noBg, addBg] = useState('navBarTwo')
@@ -70,7 +76,7 @@ const Navbar = () => {
                         <li onClick={removeNavBar} className="listItem">Home</li>
                         <li onClick={removeNavBar}  className="listItem">About</li>
                         <li onClick={removeNavBar} className="listItem">Flights</li>
-                        <li onClick={removeNavBar} className="listItem">My Bookings</li>
+                        <li onClick={()=>showbookings()} className="listItem" >My Bookings</li>
                         <li onClick={removeNavBar} className="listItem">Contact</li>
                     </ul>
 

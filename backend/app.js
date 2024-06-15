@@ -1,7 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 const nodemailer=require("nodemailer");
-const {usercollection,admincollection,flightcollection} = require("./mongo")
+const {usercollection,admincollection,flightcollection,bookingcollection} = require("./mongo")
 // Creating instance of an express application
 const app = express()
 app.use(express.json())
@@ -210,6 +210,18 @@ app.get('/search', async (req, res) => {
     }
 });
 
+app.get('/bookings', async (req, res) => {
+    // console.log("Here");
+    try {
+        const query = req.query;
+        // console.log(query);
+        const results = await bookingcollection.find({useremail:query.email});
+        // console.log(results);
+        res.json(results);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
 
 const PORT = 8000;
 app.listen(PORT, () => {

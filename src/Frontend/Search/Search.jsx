@@ -19,6 +19,10 @@ import 'aos/dist/aos.css'
 const Search = () => {
     const navigate = useNavigate();
     const [flights, setFlights] = useState([]);
+    const today = new Date();
+    let nextDay = new Date(today);
+    nextDay.setDate(today.getDate() + 2);
+    nextDay=nextDay.toISOString().split('T')[0];
     //useEffect to set animation duration 
     useEffect(() => {
         Aos.init({ duration: 2000 });
@@ -127,7 +131,7 @@ const Search = () => {
                         </div>
                         <div className="texts">
                             <h4>Departure</h4>
-                            <input type="date" placeholder="Add date"  value={startDate} id='date-picker' onChange={handleDateChange} />
+                            <input type="date" placeholder="Add date"  value={startDate} id='date-picker' onChange={handleDateChange} min={nextDay}/>
                         </div>
                     </div>
 

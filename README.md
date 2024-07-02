@@ -22,6 +22,23 @@ The Flight Management System is a full-stack application designed to manage flig
 - Book flights
 - User authentication (Login and Signup)
 
+
+## User Interface
+<p >
+  <img src="./images/user_interface.png" alt="User Interface" width="400" />
+  <img src="./images/user_login.png" alt="User Login" width="400" />
+  <img src="./images/user_signup.png" alt="User Signup" width="400" />
+  <img src="./images/user_homepage.png" alt="User Homepage" width="400" />
+  <img src="./images/user_booking.png" alt="User Booking" width="400" />
+</p>
+
+## Admin Interface
+<p >
+  <img src="./images/admin_login.png" alt="Admin Login" width="400" />
+  <img src="./images/admin_booking.png" alt="Admin Booking" width="400" />
+</p>
+
+
 ## Getting Started
 
 ### Prerequisites
